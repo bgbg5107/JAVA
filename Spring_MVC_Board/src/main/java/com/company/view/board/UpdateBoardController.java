@@ -30,7 +30,7 @@ public class UpdateBoardController implements Controller{
 		
 		//insert,update,delete 모델정보 필요없고 view정보만 필요
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:getBoardList.do"); //view 정보만 저장
+		mav.setViewName("redirect:getBoardList.do"); //view 정보만 저장, view이름 설정
 		
 		return mav;
 	}

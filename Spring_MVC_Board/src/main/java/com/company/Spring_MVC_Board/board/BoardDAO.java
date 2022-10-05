@@ -15,7 +15,6 @@ public class BoardDAO {
 	
 	//★★★★★★★★★★★★★★ 전체 게시글 목록 조회 처리 메소드★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
 	public List<BoardDO> getBoardList(String searchField, String searchText){
-		System.out.println("==>JDBC로 getBoardList() 기능 처리");
 		//ArrayList 가변 배열 객체 생성  --> 기본 10개의 객체를 저장할 공간 마련, 부족하면 자동으로 10개씩 추가
 		List<BoardDO> boardList = new ArrayList<BoardDO>();
 		
@@ -51,11 +50,10 @@ public class BoardDAO {
 		}
 		return boardList;
 	}
-	//end getBoardList()==============================================================================
+	//============================================================================================================
 	
 	//사용자가 제목을 클릭하면 선택한 게시글 상세보기 메소드 구현
 	public BoardDO getBoard(BoardDO boardDO) {
-		System.out.println("===> JDBC로 getBoard() 기능처리 완료");
 		BoardDO board = null;
 		
 		try {
@@ -83,7 +81,6 @@ public class BoardDAO {
 			}
 		}catch(Exception e) {
 			System.out.println("getBoard() " + e);
-			e.printStackTrace();
 		}finally {
 			JDBCUtil.close(rs, stmt, conn);
 		}

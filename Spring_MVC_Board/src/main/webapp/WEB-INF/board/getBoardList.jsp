@@ -8,26 +8,6 @@
 <!--  JSTL 적용하기 위해서 -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<% //스크립트릿 ==> 자바코드 기술
-	request.setCharacterEncoding("EUC-KR");
-	
-	String searchField = ""; //사용자가 선택한 작성자 or 제목 선택항목
-	String searchText = ""; //사용자가 입력한 검색 입력값
-	
-	if(request.getParameter("searchCondition") != "" && request.getParameter("searchKeyword") != ""){
-		searchField = request.getParameter("searchCondition");
-		searchText = request.getParameter("searchKeyword");
-	}	
-	BoardDAO boardDAO = new BoardDAO();
-	List<BoardDO> boardList = boardDAO.getBoardList(searchField,searchText);
-	
-	request.setAttribute("boardList", boardList);
-	
-	//int totalList = boardList.size();
-	//request.setAttribute("totalList", totalList);
-	
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
